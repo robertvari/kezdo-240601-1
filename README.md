@@ -1,4 +1,4 @@
-## Adattípusok
+## Adattípusok (data types)
 ```python
 # string (str)
 "Hello my name is Robert Vari."
@@ -21,7 +21,7 @@ True, False
 [1, 2, 3, 4]
 ```
 
-## String parancsok
+## String parancsok (string methods)
 Néhány példa a string-ekkel gyakran használt parancsokról.
 
 **upper()** Minden nagybetű.
@@ -44,7 +44,7 @@ print("kiss csaba".title())
 print("Hello World!".replace("World", "Csaba"))
 ```
 
-**split()** Szétválasztja a mondatokat a ```space``` karakternél és visszakapsz egy listát.
+**split()** Szétválasztja a mondatokat a ``space`` karakternél és visszakapsz egy listát.
 ```python
 print("Hello World!".split())
 >>>['Hello', 'World!']
@@ -59,7 +59,7 @@ print("Hello".split("e"))
 A változó egy adat tárolására szolgál. Lényegében adatot tárolsz a memóriában egy “cimke” (változó neve) segítségével. Amire figyelni kell változó névnél:
 - A változó neve nem kezdődhet számmal
 - Nem lehetnek ékezetes karakterek a névben
-- Nem lehet ```space``` a névben
+- Nem lehet ``space`` a névben
 
 **Változó deklarálása**
 ```python
@@ -81,7 +81,7 @@ A változókat egy sorban is deklarálhatod:
 name, age, address = "Robert", 42, "Budapest"
 ```
 
-## Változók felülírása
+## Változók felülírása (override variables)
 Helyet spórolunk a memóriában ha az adatokat ugyanazon változónév alatt tároljuk a program futása alatt. Ilyenkor felülírjuk a korábban tárolt adatokat a változóban. 
 
 ```python
@@ -100,8 +100,8 @@ A fenti példában látod, hogy mindig ugyanazt a változó nevet használtam a 
 >**Fontos!**  
 Figyelj arra, hogy ha tároltál egy adatot a változóban akkor használd is mielőtt felülírod egy másik adattal. 
 
-## A formated string
-Most hogy ismered a változókat használhatod a formázott string-et olyan mondatok kiírására melyben egyes szavak változókból jönnek. A formázott stringeket ```f``` karakterrel jelöljük a string előtt.
+## A formázott string (formated string)
+Most hogy ismered a változókat használhatod a formázott string-et olyan mondatok kiírására melyben egyes szavak változókból jönnek. A formázott stringeket ``f`` karakterrel jelöljük a string előtt.
 
 ```python
 name = "Csaba"
@@ -113,7 +113,7 @@ print(f"Hello {name}. You live in {address}. You are {age} years old.")
 ```
 
 ## Listák (lists)
-A listák olyan adattípusok amikben több adatot is tárolhatsz. A lista megnyitásáhot a ```[]``` karaktereket használjuk és az elemeket ```,``` választja el egymástól.
+A listák olyan adattípusok amikben több adatot is tárolhatsz. A lista megnyitásáhot a ``[]`` karaktereket használjuk és az elemeket ``,`` választja el egymástól.
 **Lista deklarálása**
 ```python
 my_friends = ["Csaba", "Kriszta", "Tamás", "Aladár"]
@@ -132,12 +132,12 @@ print(my_friends[-1])
 ```
 
 **Új elem hozzáadása**  
-Listához az ```append()``` segítségével adhatsz új elemeket. A parancs az új elemet a lista végéhez adja.
+Listához az ``append()`` segítségével adhatsz új elemeket. A parancs az új elemet a lista végéhez adja.
 ```python
 my_friends.append("Johnie")
 ```
 
-Ha fontos hova kerül az új elem használd az ```insert()``` parancsot.
+Ha fontos hova kerül az új elem használd az ``insert()`` parancsot.
 ```python
 my_friends.insert(1, "Johnie")
 ```
@@ -153,12 +153,12 @@ my_friends[1] = "Balázs"
 my_friends.remove("Balázs")
 ```
 
-Törölhetsz elemet a ```del``` paranccsal is ahol egy elem index értékét kell megadnod.
+Törölhetsz elemet a ``del`` paranccsal is ahol egy elem index értékét kell megadnod.
 ```python
 del my_friends[0]
 ```
 
-Ha a törlést és az elem lekérését egyszerre akarod akkor használd a ```pop()``` parancsot. Az alábbi példa azt mutaja, hogy törlöm és egy időben tárolom is a törölt elemet a listában. Ezt a parancsot akkor használjuk ha további müveleteket akarunk végezni a törölt elemmel.
+Ha a törlést és az elem lekérését egyszerre akarod akkor használd a ``pop()`` parancsot. Az alábbi példa azt mutaja, hogy törlöm és egy időben tárolom is a törölt elemet a listában. Ezt a parancsot akkor használjuk ha további müveleteket akarunk végezni a törölt elemmel.
 ```python
 friend = my_friends.pop(0)
 ```
@@ -173,6 +173,40 @@ print(my_friends)
 A parancsnak megadható paraméternként az, hogy fordítsa meg a rendezést.
 ```python
 my_friends.sort(reverse=True)
+```
+
+## Slicing
+Listákat és string-eket szeletelhetünk a ``[::]`` operátorral. A következőben néhány példa egy string szeletelésére.
+
+Kérem a karaktereket 0-4 indexig:
+```python
+address = "Budapest"
+print(address[0:4])
+>>>Buda
+```
+
+Ha az elemek lekérését a 0 indextől indítod az első szám kihagyható.
+```python
+print(address[:4])
+>>>Buda
+```
+
+Kérem az elemeket a 2. indextől.
+```python
+print(address[2:])
+>>>dapest
+```
+
+Minden második elem:
+```python
+print(address[::2])
+>>>Bdps
+```
+
+Lista sorrendjének megfordítása:
+```python
+print(address[::-1])
+>>>tsepaduB
 ```
 
 ## Gyakorló feladatok
