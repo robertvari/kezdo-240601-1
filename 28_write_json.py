@@ -3,7 +3,7 @@ import json
 user_data = {
     "name": "Kiss Csaba",
     "address": "Debrecen",
-    "emai": "csaba@gmail.com"
+    "email": "csaba@gmail.com"
 }
 
 with open("user_data.json", "w") as f:
