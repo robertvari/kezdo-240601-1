@@ -223,6 +223,17 @@ Láthatod hogy egy dictionary-ban minden elem egy un. ``key:value`` párt alkot.
 >**Fontos!**  
 Egy dictionary-ban nem lehet két egyforma kulcs mivel a kulcsokat a lekérdezéshez használjuk.
 
+**Elemek lekérése**  
+Egy dictionary-ból elemeket mindig a kulcs megadásával kérhetünk le.
+```python
+print(phonebook["06201235376"])
+```
+
+Ha a lekérés eredménye egy dictionary akkor beljebb is mehetünk egy újabb kulcs megadásával:
+```python
+print(phonebook["06201235376"]["name"])
+```
+
 **Elem hozzáadás**  
 Egy új elem hozzáadásához mindössze annyit kell tenned hogy definiálsz egy új kulcsot.
 ```python
