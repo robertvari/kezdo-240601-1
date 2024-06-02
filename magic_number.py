@@ -14,7 +14,15 @@ player_number = input("What is your guess? ")
 
 # check player's number. If wrong ask again.
 while magic_number != player_number:
-    print("Wrong guess! Try again.")
+    try_count -= 1
+    if try_count == 0:
+        break
+
+    print(f"Wrong guess! You have {try_count} tries left. Try again.")
     player_number = input("What is your guess? ")
 
-print(f"You win! {magic_number} was my number! :)")
+
+if magic_number == player_number:
+    print(f"You win! {magic_number} was my number! :)")
+else:
+    print(f"You lost the game. My number was {magic_number}.")
