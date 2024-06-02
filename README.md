@@ -126,7 +126,7 @@ print(my_friends[1])
 >>>Kriszta
 ```
 
-Egy lista utolsó eleme mindig a -1. Helyen áll.
+Egy lista utolsó eleme mindig a -1. helyen áll.
 ```python
 print(my_friends[-1])
 ```
