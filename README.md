@@ -81,5 +81,17 @@ A változókat egy sorban is deklarálhatod:
 name, age, address = "Robert", 42, "Budapest"
 ```
 
+## A formated string
+Most hogy ismered a változókat használhatod a formázott string-et olyan mondatok kiírására melyben egyes szavak változókból jönnek. A formázott stringeket ```f``` karakterrel jelöljük a string előtt.
+
+```python
+name = "Csaba"
+address = "Pécs"
+age = 26
+
+# f = formated string
+print(f"Hello {name}. You live in {address}. You are {age} years old.")
+```
+
 ## Gyakorló feladatok
 [Gyakorló feladatok megoldásokkal (angol)](https://www.w3schools.com/python/exercise.asp?filename=exercise_syntax1)
