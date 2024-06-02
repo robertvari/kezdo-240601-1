@@ -209,5 +209,38 @@ print(address[::-1])
 >>>tsepaduB
 ```
 
+## Szótárak (dictionaries)
+A dictionary-ban az elemek nem indexeken helyezkednek el, hanem egy un. kulcs, vagy keresőszó megadásával kerülnek be. 
+
+```python
+phonebook = {
+    "06201234567": {"name": "Kiss Csaba", "address": "Budapest", "age": 30},
+    "06201235376": {"name": "Kovács Krisztina", "address": "Pécs", "age": 25}
+}
+```
+Láthatod hogy egy dictionary-ban minden elem egy un. ``key:value`` párt alkot.
+
+>**Fontos!**  
+Egy dictionary-ban nem lehet két egyforma kulcs mivel a kulcsokat a lekérdezéshez használjuk.
+
+**Elem hozzáadás**  
+Egy új elem hozzáadásához mindössze annyit kell tenned hogy definiálsz egy új kulcsot.
+```python
+phonebook["06201239876"] = {"name": "Kiss Béla", "address": "Debrecen", "age": 42}
+```
+
+**Elem szerkesztése**  
+Az előzőhoz hasonló itt viszont meglévő külcshoz adunk új értéket.
+```python
+phonebook["06201235376"] = {"name": "Kiss Béla", "address": "Debrecen", "age": 42}
+phonebook["06201235376"]["address"] = "Budapest"
+```
+
+**Elem törlése**  
+Itt használhatjuk a ``del`` parancsot.
+```python
+del phonebook["06201235376"]
+```
+
 ## Gyakorló feladatok
 [Gyakorló feladatok megoldásokkal (angol)](https://www.w3schools.com/python/exercise.asp?filename=exercise_syntax1)
