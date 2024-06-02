@@ -55,7 +55,7 @@ print("Hello".split("e"))
 >>>['H', 'llo']
 ```
 
-## Változók
+## Változók (variables)
 A változó egy adat tárolására szolgál. Lényegében adatot tárolsz a memóriában egy “cimke” (változó neve) segítségével. Amire figyelni kell változó névnél:
 - A változó neve nem kezdődhet számmal
 - Nem lehetnek ékezetes karakterek a névben
@@ -81,6 +81,25 @@ A változókat egy sorban is deklarálhatod:
 name, age, address = "Robert", 42, "Budapest"
 ```
 
+## Változók felülírása
+Helyet spórolunk a memóriában ha az adatokat ugyanazon változónév alatt tároljuk a program futása alatt. Ilyenkor felülírjuk a korábban tárolt adatokat a változóban. 
+
+```python
+name = "Csaba"
+print(f"Hello {name}!")
+
+name = "Kriszta"
+print(f"Hello {name}!")
+
+name = "Tamás"
+print(f"Hello {name}!")
+```
+
+A fenti példában látod, hogy mindig ugyanazt a változó nevet használtam a név tárolására. 
+
+>**Fontos!**  
+Figyelj arra, hogy ha tároltál egy adatot a változóban akkor használd is mielőtt felülírod egy másik adattal. 
+
 ## A formated string
 Most hogy ismered a változókat használhatod a formázott string-et olyan mondatok kiírására melyben egyes szavak változókból jönnek. A formázott stringeket ```f``` karakterrel jelöljük a string előtt.
 
@@ -91,6 +110,69 @@ age = 26
 
 # f = formated string
 print(f"Hello {name}. You live in {address}. You are {age} years old.")
+```
+
+## Listák (lists)
+A listák olyan adattípusok amikben több adatot is tárolhatsz. A lista megnyitásáhot a ```[]``` karaktereket használjuk és az elemeket ```,``` választja el egymástól.
+**Lista deklarálása**
+```python
+my_friends = ["Csaba", "Kriszta", "Tamás", "Aladár"]
+```
+
+**Elemek lekérése**  
+Listák elemeit az indexük megadásával kérheted le. Az indexelés mindig 0-val indul.
+```python
+print(my_friends[1])
+>>>Kriszta
+```
+
+Egy lista utolsó eleme mindig a -1. Helyen áll.
+```python
+print(my_friends[-1])
+```
+
+**Új elem hozzáadása**  
+Listához az ```append()``` segítségével adhatsz új elemeket. A parancs az új elemet a lista végéhez adja.
+```python
+my_friends.append("Johnie")
+```
+
+Ha fontos hova kerül az új elem használd az ```insert()``` parancsot.
+```python
+my_friends.insert(1, "Johnie")
+```
+
+**Egy elem cseréje**  
+A következő művelettel kicseréljük a listában a második elemet (0-tól számolva).
+```python
+my_friends[1] = "Balázs"
+```
+
+**Elemek törlése**
+```python
+my_friends.remove("Balázs")
+```
+
+Törölhetsz elemet a ```del``` paranccsal is ahol egy elem index értékét kell megadnod.
+```python
+del my_friends[0]
+```
+
+Ha a törlést és az elem lekérését egyszerre akarod akkor használd a ```pop()``` parancsot. Az alábbi példa azt mutaja, hogy törlöm és egy időben tárolom is a törölt elemet a listában. Ezt a parancsot akkor használjuk ha további müveleteket akarunk végezni a törölt elemmel.
+```python
+friend = my_friends.pop(0)
+```
+
+## Lista rendezése (sorting)
+Egy lista elemeit rendezhetjül a sort() paranccsal. Az alábbi példa ABC sorrendbe rendezi a listát.
+```python
+my_friends = ["Csaba", "Kriszta", "Tamás", "Aladár"]
+my_friends.sort()
+print(my_friends)
+```
+A parancsnak megadható paraméternként az, hogy fordítsa meg a rendezést.
+```python
+my_friends.sort(reverse=True)
 ```
 
 ## Gyakorló feladatok
