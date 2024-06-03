@@ -271,19 +271,57 @@ else:
 	print("number is greater than 10")
 ```
 
+A kondíciós operátorok a következők:
+
+| Operátor      | Jelentés |
+| ----------- | ----------- |
+| ==      | Egyenlő       |
+| !=      | Nem egyenlő       |
+| <      | Kissebb       |
+| >      | Nagyobb       |
+| <=      | Kissebb-Egyenlő       |
+| >=      | Nagyobb-Egyenlő       |
+
+A következő példa ezenkenk az operátoroknak a használatát mutatja be: 
+```python
+number = 10
+
+if number == 10:
+    print("The number is 10")
+
+if number != 10:
+    print("Number is not 10")
+
+if number < 10:
+    print("Number is less than 10")
+
+if number > 10:
+    print("Number is greater than 10")
+
+if number <= 10:
+    print("The number is 10 or less")
+
+if number >= 10:
+    print("The number is 10 or greater")
+```
+
+### and
 Ez az egyszerű mechanizmus további kondíciók vizsgálatával bővíthető az ``and`` és ``or`` segítségével. A következő esetben a ``print`` csak akkor fut le, ha a számunk 5 és 10 között van:
 ```python
 if number < 10 and number > 5:
 	print("Number is between 5-10")
 ```
-Az ``and`` használatával a kondíció mindkét oldalának igaznak kell lennie. Az ``or`` esetében elég ha csak az egyik oldal igaz, a másik lehet hamis. A következő példában a ``print`` sor csak akkor fut le ha a szám kisebb 10-nél vagy nagyobb 20-nál. Bármelyik oldal igaz lehet.
+Az ``and`` használatával a kondíció mindkét oldalának igaznak kell lennie. 
+
+### or
+Az ``or`` esetében elég ha csak az egyik oldal igaz, a másik lehet hamis. A következő példában a ``print`` sor csak akkor fut le ha a szám kisebb 10-nél vagy nagyobb 20-nál. Bármelyik oldal igaz lehet.
 
 ```python
 if number < 10 or number > 20:
     print("number less than 10 or greater than 20")
 ```
 
-**elif**  
+### elif 
 Előfordulhat, hogy a kondíciós listát bővíteni akarod több feltétel megvizsgálásával. Ilyenkor használhatod az ``elif`` parancsot:
 
 ```python
@@ -295,6 +333,23 @@ elif number == 20:
     print("number is 20")
 elif number == 30:
     print("number is 30")
+```
+### match/casse
+Az újabb python verziókban több állapot vizsgálatára használható a match/casse is:
+```python
+status = 200
+
+match status:
+    case 200:
+        print("OK")
+    case 300:
+        print("Multiple Choices")
+    case 400:
+        print("Bad Request")
+    case 500:
+        print("Internal Server Error")
+    case _:
+        print("This status is not handled")
 ```
 
 ## Ciklusok
