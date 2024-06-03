@@ -259,5 +259,180 @@ Itt használhatjuk a ``del`` parancsot.
 del phonebook["06201235376"]
 ```
 
+## Kondíciók (if/else/elif)
+A programozásban gyakran kell vizsgálnunk egy változó állapotát hogy eldöntsük a kód mely része fusson tovább. Így hozunk létre elágazásokat a kódban. 
+
+```python
+number = 10
+
+if number < 10:
+	print("number is less than 10")
+else:
+	print("number is greater than 10")
+```
+
+Ez az egyszerű mechanizmus további kondíciók vizsgálatával bővíthető az ``and`` és ``or`` segítségével. A következő esetben a ``print`` csak akkor fut le, ha a számunk 5 és 10 között van:
+```python
+if number < 10 and number > 5:
+	print("Number is between 5-10")
+```
+Az ``and`` használatával a kondíció mindkét oldalának igaznak kell lennie. Az ``or`` esetében elég ha csak az egyik oldal igaz, a másik lehet hamis. A következő példában a ``print`` sor csak akkor fut le ha a szám kisebb 10-nél vagy nagyobb 20-nál. Bármelyik oldal igaz lehet.
+
+```python
+if number < 10 or number > 20:
+    print("number less than 10 or greater than 20")
+```
+
+**elif**  
+Előfordulhat, hogy a kondíciós listát bővíteni akarod több feltétel megvizsgálásával. Ilyenkor használhatod az ``elif`` parancsot:
+
+```python
+if number < 10:
+    print("number is less than 10")
+elif number == 10:
+    print("number is 10")
+elif number == 20:
+    print("number is 20")
+elif number == 30:
+    print("number is 30")
+```
+
+## Ciklusok
+### A for loop
+Mikor loop-ról beszélünk akkor egy lista elemein szeretnénk műveleteket végrehajtani. A következő példában egy számsor elemeit fogom printelni:
+
+```python
+numberList = range(10)
+
+for i in numberList:
+	print(i)
+```
+
+Figyeld meg, hogy a ``print`` parancs már egy sorral beljebb kezdődik. Ez a kód blokk, amely addig ismétlődik amíg van elem a listában. Ez a blokk lehet több soros is mint a következő példában:
+
+```python
+for i in numberList:
+	multiplied = i*i
+	divided = i/100.0
+	print(multiplied, divided)
+```
+
+**continue**  
+Bizonyos esetekben szükséges lehet,, hogy a loop futása alatt “skippelj” elemeket. Tegyük fel, hogy van egy listád egy könyvtár fájljairól de abban a könyvtárban téged csak a ``.txt`` kiterjesztésű fájlok érdekelnek. A ciklus futása alatt ezt könnyen megoldhatod a continue segítségével:
+
+```python
+for filename in fileList:
+	if not i.endswith(".txt"): 
+        continue
+	print(i)
+```
+
+**break**  
+A ``break`` segítségével kiléphetsz a ciklusból akkor is ha az még nem ért a lista végére. Az alábbi példában a ciklus addig fut amíg nem talál egy fájlt ``.txt`` kiterjesztéssel:
+
+```python
+for i in fileList:
+    if i.endswith(".txt"): 
+        break
+```
+
+**enumerate()**  
+Az ``enumerate()`` parancs egy listát fogad és loop-ban használva egyszerre adja vissza a lista index és elem adatait. Nagyon jól használható counter helyett.
+
+```python
+names = ["robert", "tamas", "balazs", "kriszta"]
+
+for index, name in enumerate(names):
+	print(index, name)
+```
+
+**List Comprehension**  
+Listák létrehozásánál gyakran van szükség valamilyen filter alkalmazására, vagy egyszerű műveletekre a lista elemeinél. Lássunk egy példát egy számlistára, ahol minden elemet szeretnék önmagával szorozni. 
+
+Alapesetben ez így nézne ki:
+```python
+numberList = range(10)
+
+numberList2 = []
+for i in numberList:
+	numberList2.append(i*i)
+```
+
+A List Comprehension lényegében egy for loop egyetlen sorban amivel egy új listát állíthatunk elő:
+```python
+numberList2 = [i*i for i in numberList]
+```
+
+Ebben a kifejezésben alkalmazhatsz kondíciót is az eredmény szűrésére. A következőben szeretnék egy listát a 2-vel osztható számokról.
+
+```python
+numberList2 [i for i in numberList if i%2 == 0]
+```
+
+ ### A while loop 
+A ``while`` ciklus a ``for``-al ellentétben nem egy listán fut végig, hanem addig ismétel egy folyamatot amíg egy feltétel igaz. 
+
+```python
+number = 0
+
+while number < 10:
+	print(number)
+	number += 1
+```
+
+Ne feledd a ``number`` változó értékét minden ciklusban növelni, különben a ``while`` végtelen ciklusban fut. A ``continue`` és ``break`` parancsok itt is ugyanúgy használhatók mint a ``for`` loop esetében.
+
+## Fájlok írása és olvasása
+
+A fájlok írásánál és olvasásánál az ``open()`` parancsot használjuk. Az ``open()`` két paramétert fogad. Az első paraméter mindig a fájl elérési útvonala (teljes, vagy relativ...), a második a mód (read, write) amelyben a fájlt meg akarjuk nyitni. A következő egy példa egy .txt fájl kiírására:
+```python
+myName = "robert"
+f = open("myFile.txt", "w")
+f.write(myName)
+f.close()
+```
+
+Nagyon elterjedt és biztonságos,  hogy fájlokat a with blokkal használjuk, mivel itt nem kell foglalkoznunk a fájl lezárásával, ezt a with megteszi nekünk. Lássuk a fenti példát így:
+```python
+with open("myFile.txt", "w") as f:
+	f.write(myName)
+```
+
+Fájl olvasása:
+```python
+with open("myFile.txt", "r") as f:
+	print f.read()
+```
+
+## Adatok kiírása .json formátumba
+A json (Java Script Object Notation) egy elterjedt formátum aminek segítságável hatékonyabban tárolhatunk adatokat fájlokban és ezeket a fájlokat visszaolvasva egyből dictionary-t kapunk amivel könnyű dolgozni.
+
+Alább egy példa egy egyszerű dictionary kiírására .json formátumba:
+```python
+import json
+
+user_data = {
+    "name": "Kiss Csaba",
+    "address": "Debrecen",
+    "email": "csaba@gmail.com"
+}
+
+with open("user_data.json", "w") as f:
+    json.dump(user_data, f)
+```
+
+A .json fájlokat így olvassok be:
+```python
+import json
+
+with open("user_data.json") as f:
+    user_data = json.load(f)
+
+print(user_data["name"])
+print(user_data["address"])
+print(user_data["email"])
+```
+
+
 ## Gyakorló feladatok
 [Gyakorló feladatok megoldásokkal (angol)](https://www.w3schools.com/python/exercise.asp?filename=exercise_syntax1)
